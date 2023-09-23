@@ -42,7 +42,7 @@ impl ColorRGB {
         } 
     }
 
-    pub fn liner(&self) -> ColorRGB {
+    pub fn linear(&self) -> ColorRGB {
         let r_lin = if self.r > 0.4045 { ((self.r + 0.055) / 1.055).powf(2.4) } else { self.r / 12.92 };
         let g_lin = if self.g > 0.4045 { ((self.g + 0.055) / 1.055).powf(2.4) } else { self.g / 12.92 };
         let b_lin = if self.b > 0.4045 { ((self.b + 0.055) / 1.055).powf(2.4) } else { self.b / 12.92 };
@@ -51,11 +51,11 @@ impl ColorRGB {
     }
 
     pub fn xyz(&self) -> ColorXYZ {
-        let liner = self.liner();
+        let linear = self.linear();
         ColorXYZ {
-            x: (liner.r * 0.4124) + (liner.g * 0.3576) + (liner.b * 0.1805),
-            y: (liner.r * 0.2126) + (liner.g * 0.7152) + (liner.b * 0.0722),
-            z: (liner.r * 0.0193) + (liner.g * 0.1192) + (liner.b * 0.9505),
+            x: (linear.r * 0.4124) + (linear.g * 0.3576) + (linear.b * 0.1805),
+            y: (linear.r * 0.2126) + (linear.g * 0.7152) + (linear.b * 0.0722),
+            z: (linear.r * 0.0193) + (linear.g * 0.1192) + (linear.b * 0.9505),
         }
     }
 }
