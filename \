@@ -1,0 +1,18 @@
+pub struct ColorRGB {
+    r: f64,
+    g: f64,
+    b: f64,
+}
+
+pub struct ColorLab {
+    l: f64,
+    a: f64,
+    b: f64,
+}
+
+impl ColorRGB {
+    fn from(&self, r: i32, g: i32, b: i32) -> self {
+        
+    }
+}
+
